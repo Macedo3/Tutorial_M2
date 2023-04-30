@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Exercicio1" id="Project-23b1" database="Sqlite" >
+	<schema name="Curriculo" >
+		<table name="conecta_tabelas" >
+			<column name="connected_columns" type="LONGTEXT" jt="-1" mandatory="y" />
+			<column name="pk_experience" type="TEXT" jt="-1" mandatory="y" />
+			<column name="pk_formacao" type="TEXT" jt="-1" mandatory="y" />
+			<column name="pk_sobre_mim" type="TEXT" jt="-1" mandatory="y" />
+			<column name="pk_habilidades" type="INTEGER" jt="4" mandatory="y" />
+			<column name="pk_personalidade" type="INTEGER" jt="4" mandatory="y" />
+			<column name="pk_realizacao" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_conecta_tabelas" unique="PRIMARY_KEY" >
+				<column name="connected_columns" />
+			</index>
+			<index name="unq_conecta_tabelas_pk_experience" unique="UNIQUE_KEY" >
+				<column name="pk_experience" />
+			</index>
+			<index name="unq_conecta_tabelas_pk_formacao" unique="UNIQUE_KEY" >
+				<column name="pk_formacao" />
+			</index>
+			<index name="unq_conecta_tabelas_pk_sobre_mim" unique="UNIQUE_KEY" >
+				<column name="pk_sobre_mim" />
+			</index>
+			<index name="unq_conecta_tabelas_pk_habilidades" unique="UNIQUE_KEY" >
+				<column name="pk_habilidades" />
+			</index>
+			<index name="unq_conecta_tabelas_pk_personalidade" unique="UNIQUE_KEY" >
+				<column name="pk_personalidade" />
+			</index>
+			<index name="unq_conecta_tabelas_pk_realizacao" unique="UNIQUE_KEY" >
+				<column name="pk_realizacao" />
+			</index>
+		</table>
+		<table name="experience" >
+			<column name="nome_da_empresa" type="TEXT" jt="-1" mandatory="y" />
+			<column name="empresa_inicio" type="DATE" jt="91" />
+			<column name="empresa_fim" type="DATE" jt="91" />
+			<column name="empresa_descricao" type="LONGTEXT" jt="-1" />
+			<column name="pk_experience" type="TEXT" jt="-1" mandatory="y" />
+			<index name="pk_experience" unique="PRIMARY_KEY" >
+				<column name="pk_experience" />
+			</index>
+			<fk name="fk_experience" to_schema="Curriculo" to_table="conecta_tabelas" >
+				<fk_column name="pk_experience" pk="pk_experience" />
+			</fk>
+		</table>
+		<table name="formacao" >
+			<column name="curso" type="TEXT" jt="-1" />
+			<column name="curso_ano_inicio" type="DATE" jt="91" />
+			<column name="curso_ano_fim" type="DATE" jt="91" />
+			<column name="pk_formacao" type="TEXT" jt="-1" mandatory="y" />
+			<index name="pk_formacao" unique="PRIMARY_KEY" >
+				<column name="pk_formacao" />
+			</index>
+			<fk name="fk_formacao" to_schema="Curriculo" to_table="conecta_tabelas" >
+				<fk_column name="pk_formacao" pk="pk_formacao" />
+			</fk>
+		</table>
+		<table name="habilidades" >
+			<column name="illustrator" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="photoshop" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="corel_draw" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="dream_weaver" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="html_css" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="pk_habilidades" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_habilidades" unique="PRIMARY_KEY" >
+				<column name="pk_habilidades" />
+			</index>
+			<fk name="fk_habilidades" to_schema="Curriculo" to_table="conecta_tabelas" >
+				<fk_column name="pk_habilidades" pk="pk_habilidades" />
+			</fk>
+		</table>
+		<table name="personalidade" >
+			<column name="lorem_ipsum" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="lorem_ipsum_2" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="lorem_ipsum_3" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="lorem_ipsum_4" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="lorem_ipsum_5" type="CHAR" length="5" jt="1" mandatory="y" />
+			<column name="pk_personalidade" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_personalidade" unique="PRIMARY_KEY" >
+				<column name="pk_personalidade" />
+			</index>
+			<fk name="fk_personalidade" to_schema="Curriculo" to_table="conecta_tabelas" >
+				<fk_column name="pk_personalidade" pk="pk_personalidade" />
+			</fk>
+		</table>
+		<table name="realizacao" >
+			<column name="realizacao_descricao" type="LONGTEXT" jt="-1" />
+			<column name="realizacao_ano" type="DATE" jt="91" />
+			<column name="realizacao_classificacao" type="DATE" jt="91" />
+			<column name="pk_realizacao" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_realizacao" unique="PRIMARY_KEY" >
+				<column name="pk_realizacao" />
+			</index>
+			<fk name="fk_realizacao" to_schema="Curriculo" to_table="conecta_tabelas" >
+				<fk_column name="pk_realizacao" pk="pk_realizacao" />
+			</fk>
+		</table>
+		<table name="sobre_mim" >
+			<column name="email" type="TEXT" jt="-1" mandatory="y" />
+			<column name="telefone" type="INTEGER" jt="4" mandatory="y" />
+			<column name="endereco" type="TEXT" jt="-1" mandatory="y" />
+			<column name="descricao" type="LONGTEXT" jt="-1" mandatory="y" />
+			<column name="pk_sobre_mim" type="TEXT" jt="-1" mandatory="y" />
+			<index name="pk_sobre_mim" unique="PRIMARY_KEY" >
+				<column name="pk_sobre_mim" />
+			</index>
+			<fk name="fk_sobre_mim" to_schema="Curriculo" to_table="conecta_tabelas" >
+				<fk_column name="pk_sobre_mim" pk="pk_sobre_mim" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="Sqlite" database="Sqlite" host="localhost" port="7210" useSystemProxy="false" />
+	<layout name="Default Layout" id="Layout-d4e" show_relation="columns" >
+		<entity schema="Curriculo" name="conecta_tabelas" color="C1D8EE" x="320" y="272" />
+		<entity schema="Curriculo" name="experience" color="C1D8EE" x="48" y="304" />
+		<entity schema="Curriculo" name="formacao" color="C1D8EE" x="208" y="64" />
+		<entity schema="Curriculo" name="habilidades" color="C1D8EE" x="624" y="288" />
+		<entity schema="Curriculo" name="personalidade" color="C1D8EE" x="400" y="544" />
+		<entity schema="Curriculo" name="realizacao" color="C1D8EE" x="160" y="512" />
+		<entity schema="Curriculo" name="sobre_mim" color="C1D8EE" x="432" y="48" />
+	</layout>
+</project>
