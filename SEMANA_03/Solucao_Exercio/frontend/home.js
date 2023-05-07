@@ -1,10 +1,10 @@
-// Puxando os dados
-window.addEventListener("load", () => {
+// Carregando os dados
+window.addEventListener("load", () => { // Ao entrar na tela carregará o axios
     axios.get('http://localhost:3000/formacao').then((response) => {
         console.log(response.data.formacoes)
-        let html = ''
-        response.data.formacoes.map((formacao) => {
-            html += `
+        let html = '' // Criando a variável HTML para ser enviada logo abaixo alguns itens.
+        response.data.formacoes.map((formacao) => { // Enviando o HTML pela home.js.
+            html += ` 
             
             <div class="formacao" id="${formacao.rowid}">
                 <div class="cabecalho">
@@ -24,22 +24,22 @@ window.addEventListener("load", () => {
 
             `
         })
-        const div = document.querySelector("#formacoes")
-        div.innerHTML = html
-    }).catch((err) => {
-        throw new Error(err)
+        const div = document.querySelector("#formacoes") // Puxando informações sobre a div formações.
+        div.innerHTML = html // Setando o conteúdo dentro da tag.
+    }).catch((err) => { // Procurando algum erro.
+        throw new Error(err) // Caso haja, será printado aqui travando a execução.
     });
 
 })
 
-function excluir(id) {
+function excluir(id) { // Função de excluir uma linha do banco de dados.
     id = id.substring(8)
-    axios.delete(`http://localhost:3000/formacao/${id}`)
+    axios.delete(`http://localhost:3000/formacao/${id}`) // Excluindo o id
         .then((response) => {
-            console.log(response.data)
+            console.log(response.data) // Pritando as formações no console, caso esteja correto.
 
-        }).catch((error) => {
-            throw new Error(error)
+        }).catch((error) => { // Identificando algum erro.
+            throw new Error(error) // Caso tenha, seja printado travando a execução.
         })
 }
 
