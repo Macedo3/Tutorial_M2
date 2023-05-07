@@ -10,22 +10,11 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-
 // Realizando conexão com o banco de dados.
 const db = new sqlite3.Database("./database.db")
 // Criando banco de dados.
 db.run("CREATE TABLE IF NOT EXISTS formacao (escola TEXT, curso TEXT, inicio TEXT, fim TEXT, grau TEXT, nota REAL, descricao TEXT)")
 db.close()
-
-
-// Definindo porta da aplicação.
-const port = 3000
-
-// Inicializando o servidor.
-app.listen(port, () => {
-    console.log("Servidor iniciado com sucesso. Escutando a porta " + port + ".")
-})
-
 
 // Criando endpoints
 
@@ -157,3 +146,15 @@ app.delete("/formacao/:id", (req, res) => {
 
 }
 )
+
+
+// Definindo porta da aplicação.
+const port = 3000
+
+
+// Inicializando o servidor.
+app.listen(port, () => {
+    console.log("Servidor iniciado com sucesso. Escutando a porta http://localhost:"+ port + "/formacao")
+})
+
+
