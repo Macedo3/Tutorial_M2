@@ -7,7 +7,6 @@
     <title>CRUD</title>
   </head>
   <h1>Atualização de Usuário</h1>
-
     <form name="form1" method="post" action="/atualizaUsuario">
         NOME COMPLETO: <input type="text" id="nome" name="nome" size="50" value="">
         <br>
@@ -26,7 +25,7 @@
         url = '/atualizaUsuario?userId='+url.searchParams.get("userId");
 
         fetch(url)
-        .then((response) => {
+        .then((response) => {   
             return response.json();
         })
         .then((data) => {

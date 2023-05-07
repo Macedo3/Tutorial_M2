@@ -1,0 +1,34 @@
+.formacao > p{
+    font-size: 1.2rem;
+}
+
+.formacao .cabecalho {
+    margin-left: 0;
+}
+
+.formacao .cabecalho > p:first-child {
+    font-weight: 800;
+    margin-left: 0;
+    font-size: 1.8rem;
+}
+
+.formacao > * {
+    margin-left: 2rem;
+}
+
+.controles > a {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    margin-right: .5rem;
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.escola {
+    margin-right: 2rem;
+}
