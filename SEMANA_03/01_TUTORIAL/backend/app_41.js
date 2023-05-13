@@ -21,7 +21,7 @@ app.get('/usuarios', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-	var sql = 'SELECT * FROM usuario ORDER BY nome_completo COLLATE NOCASE';
+	let sql = 'SELECT * FROM usuario ORDER BY nome_completo COLLATE NOCASE';
 		db.all(sql, [],  (err, rows ) => {
 			if (err) {
 				throw err;
@@ -46,8 +46,7 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
 	res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
 	db.close(); // Fecha o banco
 	res.end();
-});
-
+})
 // Monta o formulário para o update (é o U do CRUD - Update)
 app.get('/atualizaUsuario', (req, res) => {
 	res.statusCode = 200;
@@ -71,7 +70,7 @@ app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
 	sql = "UPDATE usuario SET nome_completo='" + req.body.nome + "', email = '" + req.body.email + "' , telefone='" + req.body.telefone + "' WHERE userId='" + req.body.userId + "'";
 	console.log(sql);
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-	db.run(sql, [],  err => {
+	db.run(sql, [],  (err, rows) => {
 		if (err) {
 		    throw err;
 		}
@@ -95,6 +94,7 @@ app.get('/removeUsuario', urlencodedParser, (req, res) => {
 		res.write('<p>USUARIO REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
 		res.end();
 	});
+
 	db.close(); // Fecha o banco
 });
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- Criando o formulário com o metodo PUT para atualizar os dados no banco de dados. --> 
+    <form name="form2" method="put" action="/formacao/:id">
+        <p>Escola:</p> <input type="text" id="escola" name="escola" value="" placeholder="Inteli" required>
+        <p>Curso:</p> <input type="text" id="curso" name="curso" value="" placeholder="Ciência da Computação" required>
+        <p>Data de Inicio:</p> <input type="date" id="inicio" name="inicio" value="" required>
+        <p>Previsão de fim:</p> <input type="date" id="fim" name="fim" value="" required>
+        <p>Grau de Escolaridade:</p> <input type="text" id="escolaridade" name="escolaridade" value="" placeholder="Bacharelado" required>
+        <p>Nota:</p> <input type="number" id="nota" name="nota" value="" placeholder="10.0" required>
+        <p>Descrição:</p> <input type="text" id="descricao" name="descricao" value="" placeholder="O melhor curso de todos." required>
+        <input type="hidden" id="userId" name="userId" value="">
+        <button type="button" id="confirm" name="confirm" value="INSERIR">ATUALIZAR</button>
+    </form>
+
+    <!-- Conectando o arquivo javascript com o HTML --> 
+    <script src="atualiza.js"></script>
+</body>
+</html>
