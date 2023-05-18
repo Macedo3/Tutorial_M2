@@ -1,0 +1,50 @@
+html {
+    background-color: black;
+    color: #ffff;
+}
+
+#titulo-main {
+    text-align: center;
+}
+
+#foto {
+    margin-left: 50em;
+    width: 30em;
+    border-radius: 15%;
+}
+
+
+#dados-pessoais {
+    margin-top: -40em;
+    margin-left: 30em;
+}
+
+.icones {
+    width: 2em;
+}
+
+#formacao {
+    margin-top: -16em;
+}
+
+.ano{
+    margin-bottom: 2em;
+}
+
+#comp {
+    margin-left: 30em;
+    margin-top: 5em;
+}
+
+.compet {
+    margin-bottom: -1.4em;
+    margin-left: 0.8em;
+}
+
+#experiencia {
+    margin-top: -11.25em;
+}
+
+.ano {
+    margin-bottom: -0.5em;
+}
